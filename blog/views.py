@@ -23,6 +23,7 @@ def post_new(requset):
         form = PostForm(requset.POST, requset.FILES)
         if form.is_valid():
             post = form.save(commit=False)
+            post.author = requset.user
             post.published_date = timezone.now()
             post.save()
             return redirect('post_detail', post.pk)
@@ -40,6 +41,7 @@ def post_edit(requset, pk):
         form = PostForm(requset.POST, requset.FILES, instance=post)
         if form.is_valid():
             post = form.save(commit=False)
+            post.author = requset.user
             post.published_date = timezone.now()
             post.save()
             return redirect('post_detail', post.pk)
