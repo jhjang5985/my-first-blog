@@ -3,8 +3,9 @@
 {% block content %}
     {% for post in post_list %}
         <div class="post">
+            <hr/>
             <div class="date">
-                <p>published: {{ post.published_date }}</p>
+                <p>{{ post.published_date }}</p>
             </div>
             <h4>
                 <a href="{% url "post_detail" post.pk %}">
