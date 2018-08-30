@@ -14,7 +14,15 @@
     margin-left : 40px;
 }
 
-h1, h2 {
+.page-header h1 {
+    font-family : 'Lobster', cursive;
+}
+
+.post_edit_class_name h1 {
+    font-family : 'Lobster', cursive;
+}
+
+.post_detail_class_name h1 {
     font-family : 'Lobster', cursive;
 }
 

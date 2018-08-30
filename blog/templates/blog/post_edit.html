@@ -1,9 +1,16 @@
 {% extends "blog/base.html" %}
 
+
 {% block content %}
-    <h1>New post</h1>
-    <form method="POST" class="post-form">{% csrf_token %}
-        {{ form.as_p }}
-        <button type="submit" class="save btn btn-primary">Save</button>
-    </form>
+    {% if user.is_authenticated%}
+        <div class="post_edit_class_name">
+            <h1>New post</h1>
+        </div>
+        <form method="POST" class="post-form">{% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit" class="save btn btn-primary">Save</button>
+        </form>
+    {% endif %}
+
+    <h3>이 기능은 제작자만 쓸 수 있습니다</h3>
 {% endblock %}
