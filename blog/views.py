@@ -29,7 +29,7 @@ def post_new(requset):
     else:
         form = PostForm()
 
-    return render(requset, 'blog/post_edit.html', {
+    return render(requset, 'blog/post_new.html', {
         'form' : form,
     })
 
