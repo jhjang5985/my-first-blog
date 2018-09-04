@@ -4,12 +4,21 @@
     <div class="post">
         {% if post.published_date %}
             <div class="date">
-                <p>{{ post.published_date }}</p>
+                {{ post.published_date }}
             </div>
+        {% else %}
+            <div class="post_warning">
+                <h4>이 글은 아직 게시 되지 않았습니다</h4>
+                <h5>(게시할려면 아래에 게시 버튼을 누르세요)</h5>
+            </div>
+            <a class="btn btn-default" href="{% url 'post_publish' pk=post.pk %}">게시</a>
         {% endif %}
         <a class="btn btn-default" href="{% url 'post_edit' pk=post.pk %}">
             <span class="glyphicon glyphicon-pencil"></span>
         </a>
+        <a class="btn btn-default",
+           onclick="return confirm('Are you sure?')", 
+           href="{% url 'post_remove' pk=post.pk %}"><span class="glyphicon glyphicon-remove"></span></a>
         <div class="post_detail_class_name">
             <h1>{{ post.title }}</h1>
         </div>

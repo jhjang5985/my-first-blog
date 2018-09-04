@@ -57,3 +57,11 @@
 .post a {
     color : black
 }
+
+.post .post_warning h4, h5 {
+    color : red
+}
+
+.post .post_delete a {
+    color : red
+}
