@@ -1,6 +1,9 @@
 {% extends "blog/base.html" %}
 
 {% block content %}
+    <a class="btn btn-default" href="{% url 'post_notice' %}">공지사항</a>
+    <a class="btn btn-default" href="{% url 'post_guide' %}">설명서</a>
+    
     {% for post in post_list %}
         <div class="post">
             <hr/>

@@ -22,7 +22,7 @@ def post_detail(request, pk):
     return render(request, 'blog/post_detail.html', {
         'post' : post
     })
-    
+
 def post_new(request):
     if request.method == 'POST':
         form = PostForm(request.POST, request.FILES)
@@ -66,3 +66,9 @@ def post_remove(request, pk):
     post = get_object_or_404(Post, pk=pk)
     post.delete()
     return redirect('post_list')
+
+def post_notice(request):
+    return render(request, 'blog/post_notice.html')
+
+def post_guide(request):
+    return render(request, 'blog/post_guide.html')
