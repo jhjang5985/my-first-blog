@@ -51,33 +51,33 @@
 }
 
 .post .date p {
-    color : green
+    color : green;
 }
 
 .post a {
-    color : black
+    color : black;
 }
 
 .post .post_warning h4, h5 {
-    color : red
+    color : red;
 }
 
 .post .post_delete a {
-    color : red
+    color : red;
 }
 
 .description_draft_list h3 {
-    color : lightcoral   
+    color : lightcoral ;  
 }
 
 .post .post_detail_class_name h1 {
-    color : lightcoral
+    color : lightcoral;
 }
 
 .about_log_in h3{
-    color : lightcoral
+    color : lightcoral;
 }
 
 .notice, .guide {
-    color : lightcoral
+    color : lightcoral;
 }

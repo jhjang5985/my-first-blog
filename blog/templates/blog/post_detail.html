@@ -4,7 +4,7 @@
     <div class="post">
         {% if post.published_date %}
             <div class="date">
-                {{ post.published_date }}
+                <p>{{ post.published_date }}</p>
             </div>
         {% else %}
             <div class="post_warning">
@@ -14,17 +14,23 @@
             <a class="btn btn-default" href="{% url 'post_publish' pk=post.pk %}">게시</a>
         {% endif %}
 
-        <a class="btn btn-default" href="{% url 'post_edit' pk=post.pk %}">
-            <span class="glyphicon glyphicon-pencil"></span>
-        </a>
+        <div class="btn">
+            <a class="btn btn-default" href="{% url 'post_edit' pk=post.pk %}">
+                <span class="glyphicon glyphicon-pencil"></span>
+            </a>
 
-        <a class="btn btn-default",
-           onclick="return confirm('Are you sure?')", 
-           href="{% url 'post_remove' pk=post.pk %}"><span class="glyphicon glyphicon-remove"></span></a>
+            <a class="btn btn-default",
+                onclick="return confirm('Are you sure?')", 
+                href="{% url 'post_remove' pk=post.pk %}"><span class="glyphicon glyphicon-remove"></span>
+            </a>
+        </div>
            
         <div class="post_detail_class_name">
             <h1>{{ post.title }}</h1>
         </div>
+
+        <hr/>
+
         <p>{{ post.text|linebreaksbr }}</p>
     </div>
 {% endblock %}
