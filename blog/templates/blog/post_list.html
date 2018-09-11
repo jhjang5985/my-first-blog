@@ -15,7 +15,9 @@
                     {{ post.title }}
                 </a>
             </h4>
-            <a href="{% url 'post_detail' pk=post.pk %}">댓글 : {{ post.comments.count }}개</a>
+            <a href="{% url 'post_detail' pk=post.pk %}">
+                댓글 : {{ post.comments.count }}개
+            </a>
         </div>
     {% endfor %}
 {% endblock %}

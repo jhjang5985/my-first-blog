@@ -2,7 +2,7 @@ from django.contrib.auth.decorators import login_required
 from django.shortcuts import get_object_or_404, redirect, render
 from django.utils import timezone
 from .models import Post
-from .forms import PostForm
+from .forms import PostForm, CommentForm
 
 def post_list(request):
     qs = Post.objects.all()
@@ -72,3 +72,16 @@ def post_notice(request):
 
 def post_guide(request):
     return render(request, 'blog/post_guide.html')
+
+def add_comment_to_post(request, pk):
+    post = get_object_or_404(Post, pk=pk)
+    if request.method == "POST":
+        form = CommentForm(request.POST)
+        if form.is_valid():
+            comment = form.save(commit=False)
+            comment.post = post
+            comment.save()
+            return redirect('post_detail', pk=post.pk)
+    else:
+        form = CommentForm()
+    return render(request, 'blog/add_comment_to_post.html', {'form': form})
