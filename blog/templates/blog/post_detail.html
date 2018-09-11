@@ -35,12 +35,12 @@
     </div>
 
     <hr/>
-    <div class="post_detail_class_name"><h3>댓글</h3></div>
-    <hr/>
+    <div class="post_detail_class_name">
+        <h3>댓글</h3>
+        <hr/>
+    </div>
 
-    <a class="btn btn-default" href="{% url 'add_comment_to_post' pk=post.pk %}">
-        댓글 등록
-    </a>
+    <a class="btn btn-default" href="{% url 'add_comment_to_post' pk=post.pk %}">댓글 등록</a>
 
     {% for comment in post.comments.all %}
         <div class="comment">
@@ -50,6 +50,8 @@
         </div>
         <hr/>
     {% empty %}
-        <p>댓글이 아직 없습니다</p>
+        <div class="No_comment">
+            <p>댓글이 아직 없습니다</p>
+        </div>
     {% endfor %}
 {% endblock %}
