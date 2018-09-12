@@ -11,20 +11,25 @@
 
     <hr/>
 
-    <form method="post" action="{% url 'login' %}">
+    <form method="post" class="login" action="{% url 'login' %}">
     {% csrf_token %}
         <table>
-        <tr>
-            <td>{{ form.username.label_tag }}</td>
-            <td>{{ form.username }}</td>
-        </tr>
-        <tr>
-            <td>{{ form.password.label_tag }}</td>
-            <td>{{ form.password }}</td>
-        </tr>
+            <tr>
+                <td>사용자 이름 :</td>
+                <div class="login_textbox1">
+                    <td>{{ form.username }}</td>
+                </div>
+            </tr>
+            <tr>
+                <td>비밀번호 :</td>
+                <div class="login_textbox2">
+                    <td>{{ form.password }}</td>
+                </div>
+            </tr>
         </table>
-
-        <input type="submit" value="login" />
-        <input type="hidden" name="next" value="{{ next }}" />
+        <div class="login_button">
+            <input type="submit" value="login" />
+            <input type="hidden" name="next" value="{{ next }}" />
+        </div>
     </form>
 {% endblock %}

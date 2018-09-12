@@ -94,3 +94,9 @@
 .No_comment p {
     margin : 20px 0px 20px 0px;
 }
+
+.login .login_button input {
+    margin-top : 0.3cm;
+    margin-left : 1cm;
+    width : 5.2cm;
+}
