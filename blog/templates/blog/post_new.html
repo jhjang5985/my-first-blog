@@ -2,7 +2,7 @@
 
 {% block content %}
     <div class="post_edit_class_name">
-        <h1>New post</h1>
+        <h2>새 글 쓰기</h2>
     </div>
     <form method="POST" class="post-form">{% csrf_token %}
         {{ form.as_p }}

@@ -2,7 +2,7 @@
 
 {% block content %}
     <div class="Bomb">
-        <h1>New comment</h1>
+        <h2>새 댓글 쓰기</h2>
     </div>
     <form method="POST" class="post-form">{% csrf_token %}
         {{ form.as_p }}

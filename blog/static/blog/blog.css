@@ -18,8 +18,7 @@
     font-family : 'Lobster', cursive;
 }
 
-.post_edit_class_name h1, .Bomb h1 {
-    font-family : 'Lobster', cursive;
+.post_edit_class_name h2, .Bomb h2 {
     color : lightcoral
 }
 
@@ -99,4 +98,8 @@
     margin-top : 0.3cm;
     margin-left : 1cm;
     width : 5.2cm;
+}
+
+.post .btn span {
+    width : 1cm
 }

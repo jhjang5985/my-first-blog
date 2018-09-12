@@ -20,7 +20,7 @@
             </a>
 
             <a class="btn btn-default",
-                onclick="return confirm('Are you sure?')", 
+                onclick="return confirm('이 글을 완전히 삭제 하시겠습니까?\n(다시 복원할 수 없습니다!)')", 
                 href="{% url 'post_remove' pk=post.pk %}"><span class="glyphicon glyphicon-remove"></span>
             </a>
         </div>
