@@ -19,7 +19,7 @@
 }
 
 .post_edit_class_name h2, .Bomb h2 {
-    color : lightcoral
+    color : lightcoral;
 }
 
 .date {
@@ -67,10 +67,10 @@
 }
 
 .description_draft_list h3 {
-    color : lightcoral ;  
+    color : lightcoral;  
 }
 
-.post .post_detail_class_name h1, h3 {
+.post .post_detail_class_name h1 {
     color : lightcoral;
 }
 
@@ -83,7 +83,7 @@
 }
 
 .date p {
-    color : green
+    color : green;
 }
 
 .comment {
@@ -101,5 +101,13 @@
 }
 
 .post .btn span {
-    width : 1cm
+    width : 0.6cm;
+}
+
+.title h2 {
+    color : lightcoral
+}
+
+.update h1 {
+    color : lightcoral;
 }

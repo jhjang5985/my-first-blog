@@ -16,5 +16,10 @@
                 </a>
             </h4>
         </div>
+    {% empty %}
+        <div class="No_comment">
+            <hr/>
+            <p>게시되지 않은 글이 없습니다</p>
+        </div>
     {% endfor %}
 {% endblock %}
