@@ -1,7 +1,8 @@
 .page-header {
-    background-color : lightcoral;
+    background-color : gray;
     margin-top : 0;
     padding : 20px 20px 20px 40px;
+    opacity: 0.5;
 }
 
 .page-header h1, .page-header h1 a, .page-header h1 a:visited, .page-header h1 a:active {
@@ -19,7 +20,7 @@
 }
 
 .post_edit_class_name h2, .Bomb h2 {
-    color : lightcoral;
+    color : gray;
 }
 
 .date {
@@ -67,23 +68,23 @@
 }
 
 .description_draft_list h3 {
-    color : lightcoral;  
+    color : gray;  
 }
 
 .post .post_detail_class_name1 h1 {
-    color : lightcoral;
+    color : gray;
 }
 
 .post_detail_class_name2 h3 {
-    color : lightcoral; 
+    color : gray; 
 }
 
 .about_log_in h3{
-    color : lightcoral;
+    color : gray;
 }
 
 .notice, .guide {
-    color : lightcoral;
+    color : gray;
 }
 
 .date p {
@@ -109,9 +110,17 @@
 }
 
 .title h2 {
-    color : lightcoral;
+    color : gray;
 }
 
 .update h2 {
-    color : lightcoral;
+    color : gray;
+}
+
+body {
+    background-image: url('../blog/display_img/plant-2004483_1920.jpg'); 
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
 }
