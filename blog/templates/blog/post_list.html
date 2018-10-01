@@ -1,23 +1,24 @@
 {% extends "blog/base.html" %}
 
 {% block content %}
-    <a class="btn btn-default" href="{% url 'post_notice' %}">공지사항</a>
-    <a class="btn btn-default" href="{% url 'post_guide' %}">설명서</a>
-    <a class="btn btn-default" href="{% url 'information' %}">홈페이지 정보</a>
-    
+    <p></p>
+    <div class="btn-group" role="group" aria-label="Basic example">
+        <a href="{% url 'post_new' %}" class="btn btn-outline-secondary" title="새 글 작성">새 글 작성</a>
+        <a href="{% url 'post_draft_list' %}" class="btn btn-outline-secondary" title="게시 되지 않은 글">게시 되지 않은 글</a>
+        {% if user.is_authenticated %}
+            <a href="{% url 'logout' %}" class="btn btn-outline-secondary">Log out</a>
+        {% else %}
+            <a href="{% url 'login' %}?next={{ request.path }}" class="btn btn-outline-secondary" title="제작자 인증">제작자 인증</a>
+        {% endif %}
+    </div>
+    <p></p>
+
     {% for post in post_list %}
-        <div class="post">
-            <hr/>
-            <div class="date">
-                <p>{{ post.published_date }}</p>
-            </div>
-            <h4>
-                <a href="{% url "post_detail" post.pk %}">
-                    {{ post.title }}
-                </a>
-            </h4>
-            <a href="{% url 'post_detail' pk=post.pk %}">
-                댓글 : {{ post.comments.count }}개
+        <div class="alert alert-light" role="alert">
+            <a href="{% url 'post_detail' post.pk %}" class="alert-link">
+                {{ post.title }}<br>
+                <a class="badge badge-light">{{ post.published_date }}</a>
+                <a class="badge badge-light">댓글 : {{ post.comments.count }}개</a>
             </a>
         </div>
     {% endfor %}

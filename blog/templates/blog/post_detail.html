@@ -1,6 +1,7 @@
 {% extends "blog/base.html" %}
 
 {% block content %}
+    <p></p>
     <div class="post">
         {% if post.published_date %}
             <div class="date">
@@ -8,48 +9,58 @@
             </div>
         {% else %}
             <div class="post_warning">
-                <h4>이 글은 아직 게시 되지 않았습니다</h4>
-                <h5>(게시할려면 아래에 게시 버튼을 누르세요)</h5>
+                <h5>이 글은 아직 게시 되지 않았습니다</h5>
+                <h6>(게시할려면 아래에 게시 버튼을 누르세요)</h6>
             </div>
-            <a class="btn btn-default" href="{% url 'post_publish' pk=post.pk %}">게시</a>
+            <a class="btn btn-outline-primary" href="{% url 'post_publish' pk=post.pk %}">게시</a>
         {% endif %}
 
         <div class="btn">
-            <a class="btn btn-default" href="{% url 'post_edit' pk=post.pk %}" title="수정">
-                <span class="glyphicon glyphicon-pencil"></span>
-            </a>
+            <a class="btn btn-outline-secondary" href="{% url 'post_edit' pk=post.pk %}" title="수정">수정하기</a>
 
-            <a class="btn btn-default",
+            <a class="btn btn-outline-danger",
                 onclick="return confirm('이 글을 완전히 삭제 하시겠습니까?\n(다시 복원할 수 없습니다!)')", 
                 href="{% url 'post_remove' pk=post.pk %}"
-                title="삭제"><span class="glyphicon glyphicon-remove"></span>
+                title="삭제">
+                삭제하기
             </a>
         </div>
+
+        <p></p>
            
         <div class="post_detail_class_name1">
-            <h1>{{ post.title }}</h1>
+            <span class="badge badge-secondary">제목</span>
+            <h2>{{ post.title }}</h2>
         </div>
 
-        <hr/>
+        <p></p>
 
+        <span class="badge badge-secondary">내용</span>
         <p>{{ post.text|linebreaksbr }}</p>
     </div>
 
     <hr/>
     <div class="post_detail_class_name2">
-        <h3>댓글</h3>
-        <hr/>
+        <h4>댓글</h4>
+        <p></p>
+        <a class="btn btn-outline-secondary" href="{% url 'add_comment_to_post' pk=post.pk %}">댓글 등록</a>
     </div>
-
-    <a class="btn btn-default" href="{% url 'add_comment_to_post' pk=post.pk %}">댓글 등록</a>
 
     {% for comment in post.comments.all %}
         <div class="comment">
-            <div class="date"><p>{{ comment.created_date }}</p></div>
-            <strong>{{ comment.author }}</strong>
-            <p>{{ comment.text|linebreaks }}</p>
+            <div class="date">
+                <a class="badge badge-pill badge-light">
+                    <p>{{ comment.created_date }}</p>
+                </a>
+                <br/>
+                <a class="badge badge-light">
+                    {{ comment.author }} :
+                </a>
+                <a class="badge badge-light">
+                    {{ comment.text|linebreaks }}
+                </a>
+            </div>
         </div>
-        <hr/>
     {% empty %}
         <div class="No_comment">
             <p>댓글이 아직 없습니다</p>

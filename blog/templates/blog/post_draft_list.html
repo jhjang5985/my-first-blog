@@ -1,20 +1,18 @@
 {% extends 'blog/base.html' %}
 
 {% block content %}
+    <p></p>
     <div class="description_draft_list">
         <h3>게시되지 않은 글</h3>
     </div>
+    <p></p>
     {% for post in posts %}
-        <div class="post">
-            <hr/>
-            <div class="date">
-                <p>{{ post.published_date }}</p>
-            </div>
-            <h4>
-                <a href="{% url "post_detail" post.pk %}">
-                    {{ post.title }}
-                </a>
-            </h4>
+        <div class="alert alert-light" role="alert">
+            <a href="{% url 'post_detail' post.pk %}" class="alert-link">
+                {{ post.title }}<br>
+                <a class="badge badge-light">{{ post.published_date }}</a>
+                <a class="badge badge-light">댓글 : {{ post.comments.count }}개</a>
+            </a>
         </div>
     {% empty %}
         <div class="No_comment">
