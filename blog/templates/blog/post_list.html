@@ -14,7 +14,7 @@
     <p></p>
 
     {% for post in post_list %}
-        <div class="alert alert-light" role="alert">
+        <div class="alert alert-secondary" role="alert">
             <a href="{% url 'post_detail' post.pk %}" class="alert-link">
                 {{ post.title }}<br>
                 <a class="badge badge-light">{{ post.published_date }}</a>
