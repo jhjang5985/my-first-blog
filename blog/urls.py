@@ -14,4 +14,6 @@ urlpatterns = [
     path('information/', views.information, name='information'),
     path('information/update/', views.update, name='update'),
     path('post/<int:pk>/comment/', views.add_comment_to_post, name='add_comment_to_post'),
+    path('information/maker', views.maker, name='maker'),
+    path('information/maker/youtube', views.youtube, name='youtube'),
 ]

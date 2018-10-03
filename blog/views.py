@@ -91,3 +91,9 @@ def information(request):
 
 def update(request):
     return render(request, 'blog/update.html')
+
+def maker(request):
+    return render(request, 'blog/maker.html')
+
+def youtube(request):
+    return render(request, 'blog/youtube.html')
