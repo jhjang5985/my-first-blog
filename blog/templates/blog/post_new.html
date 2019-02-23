@@ -6,7 +6,7 @@
         <h3>새 글 작성</h3>
     </div>
     <form method="POST" class="post-form">{% csrf_token %}
-            {% bootstrap_form form %}
+        {% bootstrap_form form %}
         <button type="submit" class="save btn btn-primary">저장</button>
     </form>
 {% endblock %}
