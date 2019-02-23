@@ -11,9 +11,5 @@ urlpatterns = [
     path('post/<int:pk>/remove/', views.post_remove, name='post_remove'),
     path('notice/', views.post_notice, name='post_notice'),
     path('guide/', views.post_guide, name='post_guide'),
-    path('information/', views.information, name='information'),
-    path('information/update/', views.update, name='update'),
     path('post/<int:pk>/comment/', views.add_comment_to_post, name='add_comment_to_post'),
-    path('information/maker', views.maker, name='maker'),
-    path('information/maker/youtube', views.youtube, name='youtube'),
 ]

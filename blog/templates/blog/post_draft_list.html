@@ -1,13 +1,12 @@
 {% extends 'blog/base.html' %}
 
 {% block content %}
-    <p></p>
     <div class="description_draft_list">
         <h3>게시되지 않은 글</h3>
     </div>
     <p></p>
     {% for post in posts %}
-        <div class="alert alert-light" role="alert">
+        <div class="alert alert-secondary" role="alert">
             <a href="{% url 'post_detail' post.pk %}" class="alert-link">
                 {{ post.title }}<br>
                 <a class="badge badge-light">{{ post.published_date }}</a>
@@ -15,9 +14,7 @@
             </a>
         </div>
     {% empty %}
-        <div class="No_comment">
-            <hr/>
-            <p>게시되지 않은 글이 없습니다</p>
-        </div>
+        <hr/>
+        <p>게시되지 않은 글이 없습니다</p>
     {% endfor %}
 {% endblock %}

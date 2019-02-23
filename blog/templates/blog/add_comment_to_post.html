@@ -1,12 +1,10 @@
 {% extends 'blog/base.html' %}
+{% load bootstrap4 %}
 
 {% block content %}
-    <p></p>
-    <div class="Bomb">
-        <h3>새 댓글 쓰기</h3>
-    </div>
+    <h3 class="mb-3">새 댓글 쓰기</h3>
     <form method="POST" class="post-form">{% csrf_token %}
-        {{ form.as_p }}
-        <button type="submit" class="save btn btn-primary" title="저장">Save</button>
+        {% bootstrap_form form %}
+        <button type="submit" class="save btn btn-outline-primary" title="저장">저장</button>
     </form>
 {% endblock %}

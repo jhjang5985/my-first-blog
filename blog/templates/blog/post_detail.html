@@ -1,68 +1,43 @@
 {% extends "blog/base.html" %}
 
 {% block content %}
-    <p></p>
-    <div class="post">
-        {% if post.published_date %}
-            <div class="date">
-                <p>{{ post.published_date }}</p>
-            </div>
-        {% else %}
-            <div class="post_warning">
-                <h5>이 글은 아직 게시 되지 않았습니다</h5>
-                <h6>(게시할려면 아래에 게시 버튼을 누르세요)</h6>
-            </div>
-            <a class="btn btn-outline-primary" href="{% url 'post_publish' pk=post.pk %}">게시</a>
-        {% endif %}
-
-        <div class="btn">
-            <a class="btn btn-outline-secondary" href="{% url 'post_edit' pk=post.pk %}" title="수정">수정하기</a>
-
-            <a class="btn btn-outline-danger",
-                onclick="return confirm('이 글을 완전히 삭제 하시겠습니까?\n(다시 복원할 수 없습니다!)')", 
-                href="{% url 'post_remove' pk=post.pk %}"
-                title="삭제">
-                삭제하기
-            </a>
+    {% if post.published_date %}
+        <div class="date">
+            <p>{{ post.published_date }}</p>
         </div>
-
-        <p></p>
-           
-        <div class="post_detail_class_name1">
-            <span class="badge badge-secondary">제목</span>
-            <h2>{{ post.title }}</h2>
+    {% else %}
+        <div class="post_warning mb-3" style="color:red">
+            <h5>이 글은 아직 게시 되지 않았습니다</h5>
+            <h6>(게시할려면 아래에 게시 버튼을 누르세요)</h6>
         </div>
+        <a class="btn btn-outline-primary mb-3" href="{% url 'post_publish' pk=post.pk %}">게시</a>
+    {% endif %}
+    <a class="btn btn-outline-secondary mb-3" href="{% url 'post_edit' pk=post.pk %}" title="수정">수정하기</a>
+    <a class="btn btn-outline-danger mb-3",
+        onclick="return confirm('이 글을 완전히 삭제 하시겠습니까?\n(다시 복원할 수 없습니다!)')", 
+        href="{% url 'post_remove' pk=post.pk %}"
+        title="삭제">
+        삭제하기
+    </a><br/>
 
-        <p></p>
+    <span class="badge badge-secondary">제목</span>
+    <h2 class="mb-3">{{ post.title }}</h2>
 
-        <span class="badge badge-secondary">내용</span>
-        <p>{{ post.text|linebreaksbr }}</p>
-    </div>
+    <span class="badge badge-secondary">내용</span>
+    <p>{{ post.text|linebreaksbr }}</p>
 
     <hr/>
-    <div class="post_detail_class_name2">
-        <h4>댓글</h4>
-        <p></p>
-        <a class="btn btn-outline-secondary" href="{% url 'add_comment_to_post' pk=post.pk %}">댓글 등록</a>
-    </div>
+    <h4 class="mb-3">댓글</h4>
+    <a class="btn btn-outline-secondary mb-3" href="{% url 'add_comment_to_post' pk=post.pk %}">댓글 등록</a>
 
     {% for comment in post.comments.all %}
-        <div class="comment">
-            <div class="date">
-                <a class="badge badge-pill badge-light">
-                    <p>{{ comment.created_date }}</p>
-                </a>
-                <br/>
-                <a class="badge badge-light">
-                    {{ comment.author }} :
-                </a>
-                <a class="badge badge-light">
-                    {{ comment.text|linebreaks }}
-                </a>
-            </div>
+        <div class="mb-3">
+            <span class="badge badge-light mb-1">{{ comment.created_date }}</span><br/>
+            <span class="badge badge-light">{{ comment.author }} :</span>
+            <span class="badge badge-light">{{ comment.text }}</span>
         </div>
     {% empty %}
-        <div class="No_comment">
+        <div class="No_comment mb-5">
             <p>댓글이 아직 없습니다</p>
         </div>
     {% endfor %}

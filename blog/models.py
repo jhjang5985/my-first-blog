@@ -16,8 +16,8 @@ class Post(models.Model):
 
 class Comment(models.Model):
     post = models.ForeignKey('blog.Post', related_name='comments', on_delete=models.CASCADE)
-    author = models.CharField(max_length=100)
-    text = models.TextField()
+    author = models.CharField('이름', max_length=100)
+    text = models.TextField('내용')
     created_date = models.DateTimeField(default=timezone.now)
     approved_comment = models.BooleanField(default=False)
 

@@ -4,16 +4,8 @@
     text-decoration : none;
 }
 
-.content {
-    margin-left : 30px;
-}
-
 .save {
     float : right;
-}
-
-.post-form textarea, .post-form input {
-    width : 100%;
 }
 
 .top-menu, .top-menu:hover, .top-menu:visited {
@@ -23,32 +15,12 @@
     margin-right : 20px;
 }
 
-.post {
-    margin-bottom : 30px;
-}
-
-.post .post_warning h5, h6 {
-    color : red;
-}
-
 .post .post_delete a {
     color : red;
-}
-
-.comment {
-    margin : 20px 0px 20px 20px;
-}
-
-.No_comment p {
-    margin : 20px 0px 20px 0px;
 }
 
 .login .login_button input {
     margin-top : 0.3cm;
     margin-left : 1cm;
     width : 5.2cm;
-}
-
-.post .btn span {
-    width : 0.6cm;
 }

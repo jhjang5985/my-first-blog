@@ -1,13 +1,13 @@
 {% extends "blog/base.html" %}
+{% load bootstrap4 %}
 
 {% block content %}
     {% if user.is_authenticated %}
-        <p></p>
-        <h3>글 수정</h3>
-        <p></p>
-        <form method="POST" class="post-form">{% csrf_token %}
-            {{ form.as_p }}
-            <button type="submit" class="save btn btn-primary">Save</button>
+        <h3 class="mt-3 mb-3">글 수정</h3>
+
+        <form method="POST">{% csrf_token %}
+            {% bootstrap_form form %}
+            <button type="submit" class="save btn btn-outline-primary">저장</button>
         </form>
     {% endif %}
 {% endblock %}
